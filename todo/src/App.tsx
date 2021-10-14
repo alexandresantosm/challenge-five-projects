@@ -1,3 +1,4 @@
+import { AddItem } from "./components/AddItem";
 import { Header } from "./components/Header";
 import { ListItem } from "./components/ListItem";
 import { Main } from "./components/Main";
@@ -8,9 +9,8 @@ const App = () => {
     <Wrapper>
       <Main>
         <Header title={'Lista de Tarefas'} />
-
+        <AddItem />
         <ListItem />
-
       </Main>
     </Wrapper>
   );
