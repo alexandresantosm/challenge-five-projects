@@ -5,7 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Content = styled.div`
+interface ContentPorps {
+  done: boolean;
+}
+
+export const Content = styled.div(({ done }: ContentPorps) => (`
   display: flex;
   padding: 0.75rem;
   border-radius: 0.75rem;
@@ -21,5 +25,6 @@ export const Content = styled.div`
 
   label {
       color: #ccc;
+      text-decoration: ${done ? 'line-through' : 'initial'};
   }
-`;
+`));

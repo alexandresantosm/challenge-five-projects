@@ -7,7 +7,8 @@ type Item = {
 }
 
 type TodoContextData = {
-    itens: Array<Item>;
+    items: Array<Item>;
+    updateDone: (id: number) => void;
 }
 
 export const TodoContext = createContext({} as TodoContextData);
@@ -22,10 +23,25 @@ export const TodoProvider = ({children}: TodoProviderProps) => {
         {id: 2, name: 'Estudar React', done: true },
     ];
 
-    const [itens, setItens] = useState(initialState);
+    const [items, setItems] = useState(initialState);
+
+    const updateDone = (id: number) => {
+        const itemsUpdate = items.map((item) => {
+            const {id: idItem} = item;
+            
+            if (idItem === id) {
+                item.done = !item.done;
+                return item;
+            }
+
+            return item;
+        });
+
+        setItems(itemsUpdate);
+    }
 
     return (
-        <TodoContext.Provider value={{ itens }}>
+        <TodoContext.Provider value={{ items, updateDone }}>
             {children}
         </TodoContext.Provider>
     );
