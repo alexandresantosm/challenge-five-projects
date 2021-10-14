@@ -5,10 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-interface ContentPorps {
-  done: boolean;
-}
-
 export const Content = styled.div`
   display: flex;
   padding: 0.75rem;
