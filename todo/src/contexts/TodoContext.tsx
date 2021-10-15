@@ -9,6 +9,7 @@ type Item = {
 type TodoContextData = {
     items: Array<Item>;
     updateDone: (id: number) => void;
+    addItem: (item: Item) => void;
 }
 
 export const TodoContext = createContext({} as TodoContextData);
@@ -40,8 +41,12 @@ export const TodoProvider = ({children}: TodoProviderProps) => {
         setItems(itemsUpdate);
     }
 
+    const addItem = (item: Item) => {
+        setItems([...items, item]);
+    }
+
     return (
-        <TodoContext.Provider value={{ items, updateDone }}>
+        <TodoContext.Provider value={{ items, updateDone, addItem }}>
             {children}
         </TodoContext.Provider>
     );
