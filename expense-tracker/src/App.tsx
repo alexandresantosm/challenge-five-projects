@@ -1,6 +1,8 @@
+import { Wrapper } from "./components/Wrapper";
+
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <Wrapper />
   );
 }
 
